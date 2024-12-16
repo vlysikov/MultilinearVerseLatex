@@ -1,0 +1,22 @@
+A fundamental problem in algebraic complexity theory is determining the complexity of matrix multiplication. This problem concerns determining the smallest number of arithmetic operations required to multiply matrices, that is performing the map 
+\[
+\begin{aligned}
+\MaMu(n_1,n_2,n_3) : \Mat_{n_1 \times n_2} \times \Mat_{n_2 \times n_3} &\to \Mat_{n_1 \times n_3} \\
+(A , B) &\mapsto AB,
+\end{aligned}
+\]
+as a function of $n_1,n_2,n_3$. Write $\MaMu(n)$ if $n=n_1=n_2=n_3$.
+
+When $n = n_1=n_2=n_3$, the standard row-by-column multiplication algorithm shows that $\MaMu(n,n,n)$ can be performed using (at most) $O(n^3)$ arithmetic operations: specifically, each of the $n^2$ entries of $AB$ is computed performing $n$ multiplications and $n-1$ additions between scalars. In 1969, V. Strassen \cite{Str69} found an algorithm to evaluate $\MaMu(2,2,2)$ which only requires $7$ multiplications rather than $2^3 = 8$; we refer to \cite[Section 1.1.1]{Lan12} for the explicit expression. This started a long line of research both on upper and lower bounds on the complexity of $\MaMu(n,n,n)$. 
+
+The asymptotic complexity is controlled by a universal constant, called the \emph{exponent of matrix multiplication}:
+\[
+\omega = \inf \bigl\{ \tau : \MaMu(n) \text{ can be evaluated using $n^\tau$ arithmetic operations} \bigr\}.
+\]
+The map $\MaMu(n_1,n_2,n_3)$ is bilinear, hence it defines a tensor 
+\[
+\MaMu(n_1,n_2,n_3) \in \Mat_{n_1 \times n_2}^* \otimes \Mat_{n_2 \times n_3}^* \otimes \Mat_{n_1 \times n_3}.
+\]
+An elementary but extremely important fact is that the exponent of matrix multiplication is controlled by the tensor rank of $\MaMu(n_1,n_2,n_3)$.
+
+
