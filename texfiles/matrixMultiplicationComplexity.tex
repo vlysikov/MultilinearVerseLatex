@@ -17,6 +17,30 @@ The map $\MaMu(n_1,n_2,n_3)$ is bilinear, hence it defines a tensor
 \[
 \MaMu(n_1,n_2,n_3) \in \Mat_{n_1 \times n_2}^* \otimes \Mat_{n_2 \times n_3}^* \otimes \Mat_{n_1 \times n_3}.
 \]
-An elementary but extremely important fact is that the exponent of matrix multiplication is controlled by the tensor rank of $\MaMu(n_1,n_2,n_3)$.
+A fundamental property of the matrix multiplication tensor is its \emph{self-reproducibility}, which encodes geometrically the fact that matrix multiplication can be performed in blocks.
+\begin{lemma}
+\label{matrixMultiplication-lemma-kroneckerproducts}
+% Author: Fulvio Gesmundo
+Let $n_1,n_2,n_3,m_1,m_2,m_3$ be nonnegative integers. Then 
+ \[
+\MaMu(n_1,n_2,n_3) \boxtimes \MaMu(m_1,m_2,m_3) = \MaMu(n_1m_1,n_2m_2,n_3m_3) 
+\]
+under suitable identifications $\Mat_{n_i \times n_{i+1}} \otimes \Mat_{m_i \times m_{i+1}} \simeq \Mat_{n_im_i \times n_{i+1}m_{i+1}}$.
+\end{lemma}
+The proof of \ref{matrixMultiplication-lemma-kroneckerproducts} will be evident from a more invariant point of view on the matrix multiplication tensor.
+
+An important consequence of \ref{matrixMultiplication-lemma-kroneckerproducts}, and of general results on the computational complexity of multilinear ranks \cite[Ch.14]{BCS97}, is that the exponent of matrix multiplication is controlled by the tensor rank of the matrix multiplication tensor.
+\begin{theorem}
+\label{matrixMultiplication-thm-exponentasrank}
+% Author: Fulvio Gesmundo
+The exponent of matrix multiplication is characterized as 
+\[
+\omega = \inf \{ \tau : \rank(\MaMu(n))  \leq n^\tau \} .
+\]
+Equivalently, for every fixed $n$,
+\[
+\omega = \lim_{N \to \infty} \Bigl[ \frac{1}{N} \log_n \bigl(\rank  (\MaMu(n^N) ) \bigr) \Bigr].
+\]
+\end{theorem}
 
 
